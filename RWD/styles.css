@@ -1,0 +1,72 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    flex: 1;
+    background-color: #3B82F6;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #111827;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* 📱 MEDIA QUERY (Responsive) */
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav {
+        margin-top: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
