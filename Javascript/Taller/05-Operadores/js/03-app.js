@@ -21,6 +21,6 @@ console.log (numero == numero2);
 // Puedes ver que el resultado es true, a pesar de que numero  no tiene un valor, eso usualmente nos lleva a ejecución de código no deseada o con comportamientos extraños ya que comparamos un valor que no existe, y nos retorna true
 
 // para ello llega a ser muy  util el comparador estricto
-console.log(numero === numero2);
+//console.log(numero === numero2);
 
 // De esta forma no comparamos un falso positivo y evitamos errores.

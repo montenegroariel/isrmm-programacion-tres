@@ -1,4 +1,3 @@
-// En este video estaremos viendo 3 métodos más .replace, .slice y .repeat
 
 // Replace 
 const producto = 'Monitor 20 Pulgadas';

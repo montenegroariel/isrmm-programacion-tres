@@ -30,7 +30,7 @@ var categoria = 'Computadoras',
 
 console.log(categoria)
 console.log(marca)
-console.log(calificacion)
+console.log(disponible)
 
 
 // Reglas de las variables:

@@ -1,4 +1,3 @@
-// En este video 3 métodos para strings
 const producto = '        Monitor 20 Pulgadas      '; 
 
 

@@ -2,7 +2,7 @@
 
 const producto = 'Monitor 24 pulgadas ';
 const texto = 'en Promoción '.repeat(3)
-console.log(producto.repeat(3));
+console.log(producto.repeat(5));
 console.log(producto.repeat(2.2)); // va a redondear a entero
 console.log(`${producto} ${texto} !!!`);
 
