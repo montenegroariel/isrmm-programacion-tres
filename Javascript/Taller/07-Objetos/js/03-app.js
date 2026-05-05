@@ -8,7 +8,7 @@ const producto = {
 }
 
 
-// const nombre = producto.nombre;
+//const nombre = producto.nombre;
 
 
 
@@ -28,4 +28,4 @@ console.log(precio)
 
 // O puedes hacerlo mejor con 
 
-const {nombre, precio} = producto;
+//const {nombre, precio} = producto; 

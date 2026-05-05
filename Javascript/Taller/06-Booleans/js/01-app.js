@@ -13,6 +13,10 @@ console.log(typeof boolean2);
 
 //También un Boolean se puede crear con la palabra new
 
-const boolean3 = new Boolean(true);
+const boolean3 = new Boolean();
+
 console.log(boolean3);
 console.log(typeof boolean3);
+if (boolean2){
+    console.log('verdadero')
+}
