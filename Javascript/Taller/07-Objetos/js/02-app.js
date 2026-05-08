@@ -15,7 +15,7 @@ console.log(producto.nombre);
 console.log(producto.precio);
 console.log(producto.disponible);
 if(producto.disponible){
-    alert('puede venderse')
+    //alert('puede venderse')
 }
 
 // Otra forma aunque no tan común es:
