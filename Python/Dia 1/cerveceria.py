@@ -1,0 +1,1 @@
+print("El nombre es:\n\"" + input("¿Cúal es tu color favorito? ") + " " + input("¿Cúal es el nombre de tu mascota? ") + "\"\nFelicidades!! ")
