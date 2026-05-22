@@ -1,4 +1,4 @@
-mi_tuple = (1, 2, 3, 4)
+mi_tuple = (1, 2, 3, 4) #Son inmutables;
 print(type(mi_tuple))
 
 mi_tuple = (1, 2, (10, 20), 4)

@@ -9,7 +9,7 @@ elif serie == "N-03":
 else:
     print('Ninguno')
 
-match serie:
+match serie: #Evalúa una expresión y la compara con múltiples patrones
     case "N-01":
         print('Samsung')
     case "N-02":
@@ -19,7 +19,7 @@ match serie:
     case _:
         print('Ninguno')
 
-cliente = {'nombre': 'Ariel', 'edad': 41, 'ocupacion': 'instructor'}
+cliente = {'nombre': 'Ariel', 'edad': 44, 'ocupacion': 'instructor'}
 pelicula = {'titulo': 'matrix', 'ficha_tecnica': {'protagonista': 'Keanu Reeves', 'director': 'Lana y Lily'}}
 
 elementos = [cliente, pelicula, 'libro']

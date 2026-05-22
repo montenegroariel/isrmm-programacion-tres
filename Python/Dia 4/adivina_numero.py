@@ -1,4 +1,5 @@
 from random import randint
+# Juego para explicar while
 nombre = input('Dime tu nombre: ')
 intento = 0
 aleatorio = randint(1, 100)
