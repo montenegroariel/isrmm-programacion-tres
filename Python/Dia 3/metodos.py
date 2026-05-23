@@ -7,7 +7,7 @@ mayuscula = texto.upper()
 minuscula = texto.lower()
 separar = texto.split()
 buscar = texto.find("g")  # Not found = -1
-reemplazar = texto.replace("Esto", "String")
+reemplazar = texto.replace("Esto", "")
 
 print(mayuscula)
 print(minuscula)

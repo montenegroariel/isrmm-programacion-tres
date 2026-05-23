@@ -6,22 +6,22 @@ otro_set = {1, 2, 3}
 print(type(otro_set))
 print(otro_set)
 
-mi_set = set([1, 2, 3, 4, 5, 4, 4, 4, 4, 'a'])
+mi_set = set([1, 2,2, 3,3, 4, 5, 4, 4, 4, 4, 'a','a'])
 print(type(mi_set))
 print(mi_set)
 
-print(len(mi_set))
-print(2 in mi_set)
+#print(len(mi_set))
+print(20 in mi_set)
 
 s1 = {1, 2, 3}
 s2 = {3, 4, 5}
 s3 = s1.union(s2)
 print(s3)
 
-s3.add(6)
+s3.add(6) #agregar elemento
 print(s3)
 
-s3.remove(3)
+s3.remove(3) #quitar elemento
 print(s3)
 
 # s3.remove(7)  Error no existe el elemnto

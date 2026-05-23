@@ -1,9 +1,7 @@
 texto = "Ariel"
 # texto[0] = "E" -> Error
-multiline = """Prueba de 
-multiples lineas
-con dos saltos"""
-print("sol" not in multiline)
+multiline = """ sol                   """
+print("sol" in multiline) # Busca dentro del texto
 print(len(multiline))
 print(multiline)
 
