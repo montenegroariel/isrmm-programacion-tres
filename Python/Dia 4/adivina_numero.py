@@ -9,7 +9,7 @@ Debes adivinar cual es. Recuerda que tienes 8 intentos. Suerte!!""")
 intentos = 8
 # print(aleatorio)
 
-while intentos != 0:
+while intentos != 0: #Mientras
     intento = int(input("Ingresa un número "))
     if intento not in range(1, 101):
         print('Ingresa un numero valido entre 1 y 100')
