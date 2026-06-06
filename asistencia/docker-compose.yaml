@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    # Monta el directorio actual en /app para ver cambios en tiempo real (Hot Reload)
+    volumes:
+      - .:/app
+    # Define las variables de entorno para conectar con la base de datos
+    environment:
+      - DATABASE_URL=postgresql://myuser:mypassword@db:5432/mydatabase
+    # Asegura que la base de datos inicie antes que la aplicación web
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    # Usa un volumen persistente para no perder los datos al apagar el contenedor
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# Define el volumen que usará la base de datos
+volumes:
+  postgres_data:
