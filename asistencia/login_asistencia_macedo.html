@@ -1,0 +1,547 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .root {
+    font-family: 'DM Sans', sans-serif;
+    min-height: 600px;
+    display: flex;
+    background: var(--color-background-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: #1a2744;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, #0f1a30, transparent);
+    pointer-events: none;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+  }
+
+  .brand-icon {
+    width: 36px; height: 36px;
+    background: #3b82f6;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 18px;
+  }
+
+  .brand-name {
+    font-family: 'DM Serif Display', serif;
+    color: #e8eef8;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .brand-name span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    color: #7a9cc0;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  .role-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 2rem;
+  }
+
+  .role-tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #7a9cc0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-align: left;
+  }
+
+  .role-tab:hover { background: rgba(255,255,255,0.06); color: #c5d8f0; }
+
+  .role-tab.active {
+    background: rgba(59,130,246,0.18);
+    color: #93c5fd;
+    border: 0.5px solid rgba(59,130,246,0.3);
+  }
+
+  .role-tab .tab-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .role-tab.active .tab-icon {
+    background: rgba(59,130,246,0.25);
+    color: #60a5fa;
+  }
+
+  .sidebar-info {
+    margin-top: auto;
+    font-size: 11px;
+    color: #3d5a7a;
+    line-height: 1.6;
+  }
+
+  .sidebar-info strong {
+    color: #4a7ab0;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .form-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem 2rem 1.75rem;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+  }
+
+  .form-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-prof {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  .badge-alum {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
+
+  .field {
+    margin-bottom: 14px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+
+  .input-wrap i {
+    position: absolute;
+    left: 11px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+  }
+
+  .input-wrap input,
+  .input-wrap select {
+    width: 100%;
+    padding: 9px 11px 9px 34px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+  }
+
+  .input-wrap input:focus,
+  .input-wrap select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+  }
+
+  .eye-btn {
+    position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    cursor: pointer;
+    color: var(--color-text-tertiary);
+    font-size: 15px;
+    padding: 2px;
+  }
+
+  .forgot {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 14px;
+  }
+
+  .forgot a {
+    font-size: 12px;
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius-md);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-submit:hover { opacity: 0.88; }
+  .btn-submit:active { transform: scale(0.98); }
+
+  .btn-prof {
+    background: #1d4ed8;
+    color: white;
+  }
+
+  .btn-alum {
+    background: #059669;
+    color: white;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--color-border-tertiary);
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .info-row i { font-size: 15px; flex-shrink: 0; color: var(--color-text-tertiary); }
+
+  .form-footer {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-link {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+  }
+
+  .footer-link a { color: #3b82f6; text-decoration: none; font-weight: 500; }
+
+  .sistema-tag {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+  }
+
+  .panel-section {
+    display: none;
+  }
+  .panel-section.active { display: block; }
+
+  .extra-field {
+    animation: slideIn 0.2s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<h2 class="sr-only">Sistema de Asistencia — Panel de inicio de sesión para Profesores y Alumnos</h2>
+
+<div class="root">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="brand-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+      <div class="brand-name">
+        Asistencia
+        <span>Macedo Martínez FSA</span>
+      </div>
+    </div>
+
+    <p style="font-size:11px; color:#4a6a8a; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;">Tipo de acceso</p>
+
+    <div class="role-tabs">
+      <button class="role-tab active" id="tab-prof" onclick="switchRole('prof')">
+        <span class="tab-icon"><i class="ti ti-chalkboard-teacher" aria-hidden="true"></i></span>
+        Profesor / Admin
+      </button>
+      <button class="role-tab" id="tab-alum" onclick="switchRole('alum')">
+        <span class="tab-icon"><i class="ti ti-user-graduate" aria-hidden="true"></i></span>
+        Alumno
+      </button>
+    </div>
+
+    <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:0.5px solid rgba(255,255,255,0.06);">
+      <p style="font-size:11px; color:#4a6a8a; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Accesos rápidos</p>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <div style="font-size:12px; color:#5a85a8; padding:6px 8px; display:flex; align-items:center; gap:8px;">
+          <i class="ti ti-calendar-check" style="font-size:13px;" aria-hidden="true"></i> Tomar asistencia
+        </div>
+        <div style="font-size:12px; color:#5a85a8; padding:6px 8px; display:flex; align-items:center; gap:8px;">
+          <i class="ti ti-chart-bar" style="font-size:13px;" aria-hidden="true"></i> Reportes CSV / Excel
+        </div>
+        <div style="font-size:12px; color:#5a85a8; padding:6px 8px; display:flex; align-items:center; gap:8px;">
+          <i class="ti ti-qrcode" style="font-size:13px;" aria-hidden="true"></i> Check-in por código
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-info">
+      <strong>Backend</strong>
+      FastAPI · JWT · PostgreSQL · Alembic
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="form-card">
+
+      <div id="panel-prof" class="panel-section active">
+        <div class="form-header">
+          <div class="role-badge badge-prof">
+            <i class="ti ti-chalkboard-teacher" aria-hidden="true"></i> Profesor
+          </div>
+          <h1 class="form-title">Bienvenido de vuelta</h1>
+          <p class="form-subtitle">Accedé al panel de control de tus comisiones</p>
+        </div>
+
+        <div class="field">
+          <label for="prof-email">Correo institucional</label>
+          <div class="input-wrap">
+            <i class="ti ti-mail" aria-hidden="true"></i>
+            <input type="email" id="prof-email" placeholder="profesor@macedomartinez.edu.ar" autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="prof-pass">Contraseña</label>
+          <div class="input-wrap">
+            <i class="ti ti-lock" aria-hidden="true"></i>
+            <input type="password" id="prof-pass" placeholder="••••••••" autocomplete="current-password" />
+            <button class="eye-btn" onclick="togglePass('prof-pass', this)" aria-label="Mostrar u ocultar contraseña">
+              <i class="ti ti-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="forgot"><a href="#">¿Olvidaste tu contraseña?</a></div>
+
+        <button class="btn-submit btn-prof" onclick="handleLogin('prof')">
+          Iniciar sesión como Profesor
+        </button>
+
+        <div class="divider">o acceso rápido</div>
+
+        <div class="info-row">
+          <i class="ti ti-info-circle" aria-hidden="true"></i>
+          <span>Token JWT con expiración configurable. Contraseñas cifradas con bcrypt en PostgreSQL.</span>
+        </div>
+      </div>
+
+      <div id="panel-alum" class="panel-section">
+        <div class="form-header">
+          <div class="role-badge badge-alum">
+            <i class="ti ti-user-graduate" aria-hidden="true"></i> Alumno
+          </div>
+          <h1 class="form-title">Acceso del alumno</h1>
+          <p class="form-subtitle">Consultá tu historial de asistencia por comisión</p>
+        </div>
+
+        <div class="field extra-field">
+          <label for="alum-dni">DNI</label>
+          <div class="input-wrap">
+            <i class="ti ti-id" aria-hidden="true"></i>
+            <input type="text" id="alum-dni" placeholder="Ej: 40123456" maxlength="10" />
+          </div>
+        </div>
+
+        <div class="field extra-field">
+          <label for="alum-comision">Comisión</label>
+          <div class="input-wrap">
+            <i class="ti ti-books" aria-hidden="true"></i>
+            <select id="alum-comision">
+              <option value="" disabled selected>Seleccioná tu comisión</option>
+              <option>Programación III — Comisión B</option>
+              <option>Bases de Datos — Comisión A</option>
+              <option>Redes — Comisión C</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field extra-field">
+          <label for="alum-pass">Contraseña</label>
+          <div class="input-wrap">
+            <i class="ti ti-lock" aria-hidden="true"></i>
+            <input type="password" id="alum-pass" placeholder="••••••••" autocomplete="current-password" />
+            <button class="eye-btn" onclick="togglePass('alum-pass', this)" aria-label="Mostrar u ocultar contraseña">
+              <i class="ti ti-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="forgot"><a href="#">¿Problemas para acceder?</a></div>
+
+        <button class="btn-submit btn-alum" onclick="handleLogin('alum')">
+          Ver mi asistencia
+        </button>
+
+        <div class="divider">o check-in</div>
+
+        <div class="info-row">
+          <i class="ti ti-scan" aria-hidden="true"></i>
+          <span>Los primeros 15 min de clase podés hacer check-in automático con código de barras.</span>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <span class="footer-link">¿No tenés cuenta? <a href="#">Contactá al admin</a></span>
+        <span class="sistema-tag"><span class="dot"></span>Sistema online</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchRole(role) {
+  document.getElementById('panel-prof').classList.toggle('active', role === 'prof');
+  document.getElementById('panel-alum').classList.toggle('active', role === 'alum');
+  document.getElementById('tab-prof').classList.toggle('active', role === 'prof');
+  document.getElementById('tab-alum').classList.toggle('active', role === 'alum');
+}
+
+function togglePass(inputId, btn) {
+  var inp = document.getElementById(inputId);
+  var showing = inp.type === 'text';
+  inp.type = showing ? 'password' : 'text';
+  btn.querySelector('i').className = showing ? 'ti ti-eye' : 'ti ti-eye-off';
+}
+
+function handleLogin(role) {
+  if (role === 'prof') {
+    var email = document.getElementById('prof-email').value.trim();
+    var pass = document.getElementById('prof-pass').value.trim();
+    if (!email || !pass) { alert('Completá correo y contraseña.'); return; }
+    sendPrompt('El profesor "' + email + '" inició sesión. Mostrame el panel de control con sus comisiones y el botón para tomar asistencia (épica 2 y 3).');
+  } else {
+    var dni = document.getElementById('alum-dni').value.trim();
+    var com = document.getElementById('alum-comision').value;
+    var pass2 = document.getElementById('alum-pass').value.trim();
+    if (!dni || !com || !pass2) { alert('Completá todos los campos.'); return; }
+    sendPrompt('El alumno con DNI ' + dni + ' de la comisión "' + com + '" inició sesión. Mostrame su historial de asistencia con estado Presente/Ausente/Tarde/Justificado y el porcentaje de regularidad (épica 4).');
+  }
+}
+</script>
