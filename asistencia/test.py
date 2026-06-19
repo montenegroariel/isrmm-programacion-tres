@@ -1,3 +1,6 @@
+from datetime import datetime
+ahora = datetime.now()
+
 alumnos = {
     "46251700": "RECALDE RENZO",
     "46252464": "MAXIMILIANO EZEQUIEL ACOSTA",
@@ -26,7 +29,7 @@ def main():
     while True:
         dni = input('Ingrese un dni:')
         if dni == '': break
-        print(alumnos[dni])
+        print(alumnos[dni] + " "+ str(ahora))
         
 if __name__ == "__main__":
     main()
