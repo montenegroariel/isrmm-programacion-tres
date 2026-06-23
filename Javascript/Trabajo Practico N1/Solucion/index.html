@@ -1,0 +1,32 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios JS</title>
+</head>
+
+<body>
+    <h2>Ejercicios JavaScript</h2>
+
+    <p>Ingrese los datos (JSON o texto según ejercicio):</p>
+    <input type="text" id="inputData" placeholder="Ingrese datos aquí" style="width: 400px;">
+    <br><br>
+
+    <select id="exercise">
+        <option value="1">Ejercicio 1 - Números pares</option>
+        <option value="2">Ejercicio 2 - Contador de palabras</option>
+        <option value="3">Ejercicio 3 - Carrito</option>
+    </select>
+
+    <br><br>
+    <button onclick="runExercise()">Ejecutar</button>
+
+    <h3>Salida:</h3>
+    <pre id="output"></pre>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
