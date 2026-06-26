@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+alembic
+python-jose
+passlib
+python-dotenv
+
+# fastapi es el framework web que utilizaremos para construir nuestra API.
+# uvicorn es un servidor ASGI que se utiliza para ejecutar aplicaciones FastAPI.
+# sqlalchemy es un ORM que sirve para manejar la base de datos con Python.
+# psycopg2-binary es un adaptador de base de datos para PostgreSQL.
+# alembic es una herramienta de migración de bases de datos que se integra con SQLAlchemy.
+# python-jose es una biblioteca para manejar JSON Web Tokens (JWT) en Python.
+# passlib es una biblioteca para manejar el hashing de contraseñas de manera segura.
+# python-dotenv es una biblioteca para cargar variables de entorno desde un archivo .env, lo que facilita la gestión de configuraciones sensibles como claves secretas y credenciales de base de datos.

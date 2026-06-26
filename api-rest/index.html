@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente API REST</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+
+    <h2>Consumir API REST con JSON</h2>
+    
+    <input type="text" id="inputNombre" placeholder="Tu nombre">
+    <button onclick="enviarDatos()">Enviar via JSON</button>
+
+    <div id="resultado" style="margin-top: 20px; font-weight: bold; color: darkblue;">
+        <!-- Aquí se verá la respuesta -->
+    </div>
+
+    <script>
+        async function enviarDatos() {
+            const nombre = document.getElementById('inputNombre').value;
+            const display = document.getElementById('resultado');
+
+            try {
+                const response = await fetch('/api/nombre', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ "nombre": nombre })
+                });
+
+                const data = await response.json();
+                display.innerText = data.mensaje; // Mostramos el mensaje del JSON
+            } catch (error) {
+                display.innerText = "Error al conectar con la API";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

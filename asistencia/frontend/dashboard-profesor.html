@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- Tailwind CSS (debe cargarse ANTES de app.js para que la config funcione) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!-- Configuración de Tailwind + lógica (debe ir después de cargar Tailwind) -->
+    <script src="js/app.js" defer></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+
+<!-- SideNavBar -->
+<aside class="h-screen w-64 flex flex-col fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant z-40 hidden md:flex">
+    <div class="flex flex-col h-full py-lg">
+        <div class="px-lg mb-xl">
+            <div class="font-headline-sm text-headline-sm font-bold text-primary">ISPRMM</div>
+            <div class="mt-sm">
+                <p class="font-label-md text-label-md text-primary font-semibold">Portal Académico</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant">Ciclo Lectivo 2026</p>
+            </div>
+        </div>
+        <nav class="flex-1 px-md space-y-xs">
+            <a class="bg-primary-container text-on-primary-container font-semibold rounded-lg flex items-center px-md py-sm scale-95 transition-transform duration-100" href="#">
+                <span class="material-symbols-outlined mr-md">dashboard</span>
+                <span class="font-label-md text-label-md">Panel Control</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-sm hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">school</span>
+                <span class="font-label-md text-label-md">Clases</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-sm hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">group</span>
+                <span class="font-label-md text-label-md">Estudiantes</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-sm hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">grade</span>
+                <span class="font-label-md text-label-md">Calificaciones</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-sm hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">calendar_today</span>
+                <span class="font-label-md text-label-md">Horarios</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-sm hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">check_circle</span>
+                <span class="font-label-md text-label-md">Asistencia</span>
+            </a>
+        </nav>
+        <div class="px-md mt-auto pt-lg border-t border-outline-variant">
+            <button class="w-full bg-primary text-on-primary rounded-lg py-sm px-md font-label-md text-label-md mb-md hover:opacity-90 transition-all">
+                Nueva Entrada
+            </button>
+            <a class="text-on-surface-variant flex items-center px-md py-xs hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">settings</span>
+                <span class="font-label-md text-label-md">Configuración</span>
+            </a>
+            <a class="text-on-surface-variant flex items-center px-md py-xs hover:bg-surface-container-high transition-colors duration-150" href="#">
+                <span class="material-symbols-outlined mr-md">help</span>
+                <span class="font-label-md text-label-md">Soporte</span>
+            </a>
+        </div>
+    </div>
+</aside>
+
+<main class="flex-1 md:ml-64 transition-all duration-300">
+
+    <!-- TopNavBar -->
+    <header class="flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50 bg-surface border-b border-outline-variant shadow-sm">
+        <div class="flex items-center gap-md">
+            <button class="md:hidden text-on-surface-variant p-sm">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <div class="relative hidden sm:block">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                <input class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-1.5 text-body-sm font-body-sm focus:ring-2 focus:ring-primary focus:outline-none w-64" placeholder="Buscar datos..." type="text"/>
+            </div>
+        </div>
+        <div class="flex items-center gap-md">
+            <div class="hidden sm:flex flex-col items-end mr-sm">
+                <p class="font-label-md text-label-md font-bold text-on-surface leading-none">Montenegro Ariel</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant">Profesor</p>
+            </div>
+            <button class="text-on-surface-variant hover:bg-surface-container transition-colors p-sm rounded-full relative">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+            </button>
+            <button class="text-on-surface-variant hover:bg-surface-container transition-colors p-sm rounded-full">
+                <span class="material-symbols-outlined">mail</span>
+            </button>
+            <div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant ml-sm">
+                <img alt="Foto de perfil del profesor Montenegro Ariel" class="h-full w-full object-cover" src=""/>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Canvas -->
+    <div class="p-lg md:p-xl space-y-lg max-w-[1280px] mx-auto">
+
+        <!-- Welcome Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-lg items-center">
+            <div class="lg:col-span-2">
+                <h1 class="font-display-lg text-display-lg text-primary mb-xs">¡Hola, Montenegro!</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Bienvenido de nuevo a tu espacio de trabajo.</p>
+            </div>
+            <div class="bg-primary-container text-on-primary-container p-lg rounded-xl shadow-sm flex items-center justify-between overflow-hidden relative group">
+                <div class="z-10">
+                    <p class="font-label-md text-label-md uppercase tracking-wider opacity-80">Próxima Sesión</p>
+                    <h3 class="font-headline-sm text-headline-sm mt-xs">Física Avanzada</h3>
+                    <p class="font-body-sm text-body-sm mt-sm flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]">schedule</span> 10:30 AM
+                    </p>
+                </div>
+                <span class="material-symbols-outlined text-[80px] opacity-10 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform">rocket_launch</span>
+            </div>
+        </section>
+
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+
+            <!-- Clases de Hoy -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm lg:col-span-2">
+                <div class="flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+                    <h2 class="font-headline-sm text-headline-sm flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary">event_note</span>
+                        Clases de Hoy
+                    </h2>
+                    <button class="text-primary font-label-md text-label-md hover:underline">Ver Calendario Completo</button>
+                </div>
+                <div class="space-y-sm">
+                    <div class="flex items-center p-md bg-surface-container-low rounded-lg border border-transparent hover:border-primary-fixed-dim transition-all">
+                        <div class="w-16 text-center border-r border-outline-variant pr-md mr-md">
+                            <p class="font-label-md text-label-md font-bold text-primary">09:00</p>
+                            <p class="font-label-sm text-label-sm text-outline">AM</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-headline-sm text-[16px] font-semibold">Matemáticas II</h4>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Aula 302 • 4to Año A</p>
+                        </div>
+                        <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-sm py-xs rounded text-[11px] font-bold">EN VIVO</span>
+                    </div>
+                    <div class="flex items-center p-md bg-surface-container hover:bg-surface-container-high rounded-lg transition-all">
+                        <div class="w-16 text-center border-r border-outline-variant pr-md mr-md">
+                            <p class="font-label-md text-label-md font-bold text-on-surface">11:15</p>
+                            <p class="font-label-sm text-label-sm text-outline">AM</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-headline-sm text-[16px] font-semibold">Literatura Clásica</h4>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Aula 105 • 5to Año C</p>
+                        </div>
+                        <span class="bg-surface-variant text-on-surface-variant px-sm py-xs rounded text-[11px] font-bold">PRÓXIMA</span>
+                    </div>
+                    <div class="flex items-center p-md bg-surface-container hover:bg-surface-container-high rounded-lg transition-all">
+                        <div class="w-16 text-center border-r border-outline-variant pr-md mr-md">
+                            <p class="font-label-md text-label-md font-bold text-on-surface">02:30</p>
+                            <p class="font-label-sm text-label-sm text-outline">PM</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-headline-sm text-[16px] font-semibold">Reunión Docente</h4>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Sala de Reuniones A</p>
+                        </div>
+                        <span class="bg-surface-variant text-on-surface-variant px-sm py-xs rounded text-[11px] font-bold">REUNIÓN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asistencia -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex flex-col">
+                <div class="flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+                    <h2 class="font-headline-sm text-headline-sm flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary">analytics</span>
+                        Asistencia
+                    </h2>
+                    <span class="bg-primary-container text-on-primary-container px-sm py-xs rounded text-[11px] font-bold">ESTA SEMANA</span>
+                </div>
+                <div class="flex-1 flex flex-col justify-center">
+                    <div class="flex items-end justify-between h-32 px-md gap-2">
+                        <div class="flex flex-col items-center flex-1">
+                            <div class="w-full bg-primary/20 rounded-t-sm h-[85%] relative group">
+                                <div class="absolute inset-x-0 bottom-0 bg-primary h-[85%] rounded-t-sm"></div>
+                                <div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded">92%</div>
+                            </div>
+                            <span class="text-[10px] mt-xs text-outline font-bold">LUN</span>
+                        </div>
+                        <div class="flex flex-col items-center flex-1">
+                            <div class="w-full bg-primary/20 rounded-t-sm h-[85%] relative group">
+                                <div class="absolute inset-x-0 bottom-0 bg-primary h-[78%] rounded-t-sm"></div>
+                                <div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded">88%</div>
+                            </div>
+                            <span class="text-[10px] mt-xs text-outline font-bold">MAR</span>
+                        </div>
+                        <div class="flex flex-col items-center flex-1">
+                            <div class="w-full bg-primary/20 rounded-t-sm h-[85%] relative group">
+                                <div class="absolute inset-x-0 bottom-0 bg-primary h-[95%] rounded-t-sm"></div>
+                                <div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded">98%</div>
+                            </div>
+                            <span class="text-[10px] mt-xs text-outline font-bold">MIE</span>
+                        </div>
+                        <div class="flex flex-col items-center flex-1">
+                            <div class="w-full bg-primary/20 rounded-t-sm h-[85%] relative group">
+                                <div class="absolute inset-x-0 bottom-0 bg-primary h-[82%] rounded-t-sm"></div>
+                                <div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded">91%</div>
+                            </div>
+                            <span class="text-[10px] mt-xs text-outline font-bold">JUE</span>
+                        </div>
+                        <div class="flex flex-col items-center flex-1">
+                            <div class="w-full bg-primary/20 rounded-t-sm h-[85%] relative group">
+                                <div class="absolute inset-x-0 bottom-0 bg-secondary h-[40%] rounded-t-sm"></div>
+                                <div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded">75%</div>
+                            </div>
+                            <span class="text-[10px] mt-xs text-outline font-bold">VIE</span>
+                        </div>
+                    </div>
+                    <div class="mt-md p-md bg-surface-container-low rounded-lg">
+                        <div class="flex justify-between items-center mb-xs">
+                            <p class="font-label-sm text-label-sm text-on-surface-variant">Promedio Semanal</p>
+                            <p class="font-label-md text-label-md font-bold text-primary">89%</p>
+                        </div>
+                        <div class="w-full bg-outline-variant h-1 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[89%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendario Mini -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+                <div class="flex justify-between items-center mb-md">
+                    <p class="font-label-md text-label-md font-bold text-on-surface">Junio 5</p>
+                    <div class="flex gap-xs">
+                        <button class="p-xs hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+                        <button class="p-xs hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-7 gap-y-sm text-center mb-sm">
+                    <div class="font-label-sm text-label-sm text-outline">D</div>
+                    <div class="font-label-sm text-label-sm text-outline">L</div>
+                    <div class="font-label-sm text-label-sm text-outline">M</div>
+                    <div class="font-label-sm text-label-sm text-outline">M</div>
+                    <div class="font-label-sm text-label-sm text-outline">J</div>
+                    <div class="font-label-sm text-label-sm text-outline">V</div>
+                    <div class="font-label-sm text-label-sm text-outline">S</div>
+                    <div class="text-body-sm py-1 opacity-30">27</div>
+                    <div class="text-body-sm py-1 opacity-30">28</div>
+                    <div class="text-body-sm py-1 opacity-30">29</div>
+                    <div class="text-body-sm py-1 opacity-30">30</div>
+                    <div class="text-body-sm py-1 opacity-30">31</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">1</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">2</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">3</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">4</div>
+                    <div class="text-body-sm py-1 bg-primary text-on-primary rounded-lg font-bold">5</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">6</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer relative">
+                        7
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-error rounded-full"></span>
+                    </div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">8</div>
+                    <div class="text-body-sm py-1 hover:bg-surface-container rounded-lg cursor-pointer">9</div>
+                </div>
+                <div class="mt-lg pt-md border-t border-outline-variant">
+                    <div class="flex items-center gap-md">
+                        <div class="w-1 h-12 bg-error rounded-full"></div>
+                        <div>
+                            <p class="font-label-md text-label-md font-bold">Cierre de Notas</p>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Vence en 2 días</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actividad Reciente -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex flex-col">
+                <div class="flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+                    <h2 class="font-headline-sm text-headline-sm">Actividad</h2>
+                    <span class="material-symbols-outlined text-outline">history</span>
+                </div>
+                <div class="space-y-lg flex-1 overflow-y-auto max-h-[320px] pr-sm custom-scrollbar">
+                    <div class="flex gap-md">
+                        <div class="mt-1 bg-secondary-container p-xs rounded-full h-fit">
+                            <span class="material-symbols-outlined text-[16px] text-on-secondary-container">upload_file</span>
+                        </div>
+                        <div>
+                            <p class="font-body-sm text-body-sm"><span class="font-bold text-on-background">Carlos Ruiz</span> entregó <span class="text-primary font-semibold">Informe Lab 04</span></p>
+                            <p class="font-label-sm text-label-sm text-outline">hace 12 mins</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-md">
+                        <div class="mt-1 bg-tertiary-container p-xs rounded-full h-fit">
+                            <span class="material-symbols-outlined text-[16px] text-on-tertiary-container">done_all</span>
+                        </div>
+                        <div>
+                            <p class="font-body-sm text-body-sm"><span class="font-bold text-on-background">Asistencia</span> marcada para <span class="text-primary font-semibold">Matemáticas 4-A</span></p>
+                            <p class="font-label-sm text-label-sm text-outline">hace 1 hora</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-md">
+                        <div class="mt-1 bg-error-container p-xs rounded-full h-fit">
+                            <span class="material-symbols-outlined text-[16px] text-on-error-container">error</span>
+                        </div>
+                        <div>
+                            <p class="font-body-sm text-body-sm"><span class="font-bold text-on-background">Faltante:</span> 4 alumnos no entregaron Ensayo de Historia</p>
+                            <p class="font-label-sm text-label-sm text-outline">hace 3 horas</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-md">
+                        <div class="mt-1 bg-surface-variant p-xs rounded-full h-fit">
+                            <span class="material-symbols-outlined text-[16px] text-on-surface-variant">chat_bubble</span>
+                        </div>
+                        <div>
+                            <p class="font-body-sm text-body-sm">Nuevo comentario de <span class="font-bold text-on-background">Ana M.</span> en "Repaso Parcial"</p>
+                            <p class="font-label-sm text-label-sm text-outline">Ayer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calificaciones Pendientes -->
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm lg:col-span-2">
+                <div class="flex justify-between items-center mb-md border-b border-outline-variant pb-md">
+                    <h2 class="font-headline-sm text-headline-sm">Calificaciones Pendientes</h2>
+                    <div class="flex gap-sm">
+                        <span class="bg-error-container text-on-error-container px-sm py-xs rounded-full text-[11px] font-bold">12 ACCIONES REQUERIDAS</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-outline-variant">
+                                <th class="py-sm font-label-md text-label-md text-outline">ESTUDIANTE</th>
+                                <th class="py-sm font-label-md text-label-md text-outline">TAREA</th>
+                                <th class="py-sm font-label-md text-label-md text-outline">ENTREGADO</th>
+                                <th class="py-sm font-label-md text-label-md text-outline text-right">ACCIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-surface-container">
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="py-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-[12px]">ML</div>
+                                        <span class="font-body-sm text-body-sm font-semibold">Maria Lopez</span>
+                                    </div>
+                                </td>
+                                <td class="py-md font-body-sm text-body-sm">Borrador Proyecto Final</td>
+                                <td class="py-md font-body-sm text-body-sm text-on-surface-variant">Hoy, 08:45 AM</td>
+                                <td class="py-md text-right">
+                                    <button class="bg-primary-container text-on-primary-container px-md py-sm rounded-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-opacity">Calificar</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="py-md">
+                                    <div class="flex items-center gap-sm">
+                                        <img alt="Foto de estudiante" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClA8-5DOk_f_HQhLyASfnFcd6EpU7wA0h-pgWgPjN69pgV_VXrvfWoP7bJ26Zc-V92hKOtDmmwd9QSvAEds1_4W9aWbkhkdZ0Kt05lSAgpA_1pYr2yqIhfJA-kmU_c0GzsQlSgkcIk9qzP5CQ2IrPe8jotJ4NIc5gXl-z6LM0ZAw0ggk0jegPI4MJwWv-MhdT28-LTIceIddPtEJecarJDLm9-osRhXgZHiPbMaXYgK04yhg8cJaos8SUybnauIaDQHaYXRrTQMfND"/>
+                                        <span class="font-body-sm text-body-sm font-semibold">David Chen</span>
+                                    </div>
+                                </td>
+                                <td class="py-md font-body-sm text-body-sm">Quiz Física Cuántica</td>
+                                <td class="py-md font-body-sm text-body-sm text-on-surface-variant">Sept 4, 11:20 PM</td>
+                                <td class="py-md text-right">
+                                    <button class="bg-primary-container text-on-primary-container px-md py-sm rounded-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-opacity">Calificar</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="py-md">
+                                    <div class="flex items-center gap-sm">
+                                        <div class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-[12px]">AS</div>
+                                        <span class="font-body-sm text-body-sm font-semibold">Alice Smith</span>
+                                    </div>
+                                </td>
+                                <td class="py-md font-body-sm text-body-sm">Ensayo Ética</td>
+                                <td class="py-md font-body-sm text-body-sm text-on-surface-variant">Sept 3, 04:15 PM</td>
+                                <td class="py-md text-right">
+                                    <button class="bg-primary-container text-on-primary-container px-md py-sm rounded-lg font-label-md text-label-md opacity-0 group-hover:opacity-100 transition-opacity">Calificar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- fin bento grid -->
+    </div><!-- fin content canvas -->
+
+</main>
+
+<!-- FAB móvil -->
+<button class="fixed bottom-xl right-xl bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 md:hidden">
+    <span class="material-symbols-outlined">add</span>
+</button>
+
+</body>
+</html>
