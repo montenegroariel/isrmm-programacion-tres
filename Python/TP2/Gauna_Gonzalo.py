@@ -16,3 +16,6 @@ def hablar(self):
 
 def calcular_edad(self):
     fecha_hoy = date.today()
+
+# Falta la herencia de las clases
+# El metodo de calcular edad da error

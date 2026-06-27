@@ -28,7 +28,7 @@ class Persona:
 
 class Alumno(Persona):
 
-    def __init__(self, fecha_nacimiento, genero, altura, peso):
+    def __init__(self, fecha_nacimiento, genero, altura, peso): # falta curso en el constructor
         super().__init__(fecha_nacimiento, genero, altura, peso)
         self.curso = None   
 
@@ -39,7 +39,7 @@ class Alumno(Persona):
 
 class Profesor(Persona):
 
-    def __init__(self, fecha_nacimiento, genero, altura, peso):
+    def __init__(self, fecha_nacimiento, genero, altura, peso): # falta materia en el constructor
         super().__init__(fecha_nacimiento, genero, altura, peso)
         self.materia = None
 
