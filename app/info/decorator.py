@@ -21,9 +21,9 @@ def minuscula(texto):
 
 # Pasar una funcion como parametro
 def decorador(funcion):
-    def saludo(palabra, encoding):
+    def saludo(texto, encoding):
         print('Bienvenido')
-        funcion(palabra, encoding)
+        funcion(texto, encoding)
         print('Adios')
     return saludo
   
@@ -31,5 +31,9 @@ def decorador(funcion):
 def minuscula_decorado(texto, encoding):
     print(texto.lower() + f'{encoding}')
 
+@decorador
+def impresora(texto, encoding):
+    print(texto.lower())
 
 minuscula_decorado('Hola', ' utf8')
+impresora('prueba','asdfa')
