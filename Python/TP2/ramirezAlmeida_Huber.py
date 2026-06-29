@@ -18,7 +18,7 @@ class Persona:
         print("La persona camina")
 
 
-    def calcular_edad(self, anio_actual): # calcular edad debe hacer el calculo reals
+    def calcular_edad(self, anio_actual):
         edad = anio_actual - self.fecha_nacimiento
         print(f"La persona tiene: {edad} años")
         return edad
@@ -30,9 +30,9 @@ class Persona:
 
 
 class Alumno(Persona):
-    def __init__(self, anio_nacimiento, peso, altura, genero): # falta el curso en el constructor
-        Persona.__init__(self, anio_nacimiento, peso, altura, genero)
-        self.curso = None  
+    def __init__(self, anio_nacimiento, peso, altura, genero, curso):
+        Persona.__init__(self, anio_nacimiento, peso, altura, genero) # se utiliza super para constructor de herencia
+        self.curso = curso  
 
 
 
@@ -46,9 +46,9 @@ class Alumno(Persona):
 
 
 class Profesor(Persona):
-    def __init__(self, anio_nacimiento, peso, altura, genero): # falta la materia en el constructor
-        Persona.__init__(self, anio_nacimiento, peso, altura, genero)
-        self.materia = None  
+    def __init__(self, anio_nacimiento, peso, altura, genero, materia):
+        Persona.__init__(self, anio_nacimiento, peso, altura, genero) # se utiliza super para constructor de herencia
+        self.materia = materia  
 
 
 

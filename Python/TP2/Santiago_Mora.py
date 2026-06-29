@@ -16,7 +16,7 @@ class Persona:
         print('Hablando...')
 
     def calcular_edad(self):
-        hoy = date.today()
+        hoy = date.today() # date no esta importado, va a dar error
         edad = hoy.year - self.fecha_nacimiento.year - (
             (hoy.month, hoy.day) < (self.fecha_nacimiento.month, self.fecha_nacimiento.day)
         )
