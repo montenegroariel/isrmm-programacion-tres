@@ -31,7 +31,7 @@ class Persona:
 
 class Alumno(Persona):
     def __init__(self, anio_nacimiento, peso, altura, genero, curso):
-        Persona.__init__(self, anio_nacimiento, peso, altura, genero)
+        Persona.__init__(self, anio_nacimiento, peso, altura, genero) # se utiliza super para constructor de herencia
         self.curso = curso  
 
 
@@ -47,7 +47,7 @@ class Alumno(Persona):
 
 class Profesor(Persona):
     def __init__(self, anio_nacimiento, peso, altura, genero, materia):
-        Persona.__init__(self, anio_nacimiento, peso, altura, genero)
+        Persona.__init__(self, anio_nacimiento, peso, altura, genero) # se utiliza super para constructor de herencia
         self.materia = materia  
 
 

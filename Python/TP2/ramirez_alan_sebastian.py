@@ -28,6 +28,7 @@ class Alumno(Persona):
     def asignar_curso(self, curso):
         self.curso = curso
 
+
 class Profesor(Persona):
     def __init__(self, fecha_nacimiento, genero, altura, peso, materia=None):
         super().__init__(fecha_nacimiento, genero, altura, peso)
@@ -35,6 +36,7 @@ class Profesor(Persona):
 
     def asignar_materia(self, materia):
         self.materia = materia
+
 
 #a = Alumno("2005-05-15", "Masculino", 1.75, 70)
 #a.asignar_curso("Matemáticas")
